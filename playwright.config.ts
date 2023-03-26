@@ -11,7 +11,8 @@ import { defineConfig, devices } from '@playwright/test';
  */
 export default defineConfig({
   testDir: './tests',
-  timeout: 30*1000,
+  testMatch: '/**/*.ts',
+  timeout: 30 * 1000,
   expect: {
 
     timeout: 5000
@@ -43,21 +44,31 @@ export default defineConfig({
 
     // },
 
+    // {
+    //   name: 'firefox',
+    //   use: { ...devices['Desktop Firefox'] },
+    // },
+
+    // {
+    //   name: 'webkit',
+    //   use: { ...devices['Desktop Safari'] },
+
+    // },
+
     {
-      name: 'firefox',
-      use: { ...devices['Desktop Firefox'] },
+      // 'use' property
+      use: {
+        browserName: 'chromium',
+        headless: false,
+      }
     },
 
     {
-      name: 'webkit',
-      use: { ...devices['Desktop Safari'] },
-      
+      use: {
+        browserName: 'firefox',
+        headless: false
+      }
     },
-
-    {
-        // 'use' property
-      use: {browserName:'chromium'}
-    }
 
     /* Test against mobile viewports. */
     // {
