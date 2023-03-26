@@ -14,6 +14,7 @@ test('First PlayWright Test',async ({browser}) => {
     const webPage = await browserContext.newPage(); 
 
     await webPage.goto('https://www.google.com/');
+    console.log(webPage.title())
 })
 
 test('scond test',async ({page}) =>{
